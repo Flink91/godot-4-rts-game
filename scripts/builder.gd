@@ -20,6 +20,9 @@ var plane: Plane # Used for raycasting mouse
 
 var is_build_mode_active: bool = true
 
+var is_building = false
+var is_demolishing = false
+
 func _ready() -> void:
     
     map = DataMap.new()
@@ -44,34 +47,57 @@ func _ready() -> void:
     update_cash()
 
 func _process(delta):
-
     if not is_build_mode_active:
         visible = false
         return
     else:
         visible = true
-    
-    # Controls
-    
-    action_rotate() # Rotates selection 90 degrees
-    action_structure_toggle() # Toggles between structures
-    
-    action_save() # Saving
-    action_load() # Loading
-    
+
     # Map position based on mouse
-    
     var world_position = plane.intersects_ray(
         view_camera.project_ray_origin(get_viewport().get_mouse_position()),
         view_camera.project_ray_normal(get_viewport().get_mouse_position()))
-  
+
     if world_position != null:
         var gridmap_position = Vector3(round(world_position.x), 0, round(world_position.z))
         selector.position = lerp(selector.position, gridmap_position, delta * 40)
-        if Input.is_action_pressed("build"):
+
+        # Perform build or demolish if dragging
+        if is_building:
             action_build(gridmap_position)
-        if Input.is_action_pressed("demolish"):
+        if is_demolishing:
             action_demolish(gridmap_position)
+
+func _unhandled_input(event):
+    # Start building when mouse button is pressed
+    if event.is_action_pressed("build"):
+        is_building = true
+    
+    # Stop building when mouse button is released
+    if event.is_action_released("build"):
+        is_building = false
+
+    # Start demolishing when mouse button is pressed
+    if event.is_action_pressed("demolish"):
+        is_demolishing = true
+    
+    # Stop demolishing when mouse button is released
+    if event.is_action_released("demolish"):
+        is_demolishing = false
+
+    # Controls for one-time actions like rotate, structure toggle, save, and load
+    if event.is_action_pressed("rotate"):
+        action_rotate() # Rotates selection 90 degrees
+
+    if event.is_action_pressed("structure_next") or event.is_action_pressed("structure_previous"):
+        action_structure_toggle() # Toggles between structures
+
+    if event.is_action_pressed("save"):
+        action_save() # Saving
+
+    if event.is_action_pressed("load"):
+        action_load() # Loading
+
 
 # Retrieve the mesh from a PackedScene, used for dynamically creating a MeshLibrary
 func get_mesh(packed_scene):

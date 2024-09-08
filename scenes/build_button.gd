@@ -12,7 +12,7 @@ func _button_toggled(toggled_on: bool):
     else:
         text = "Build Mode Disabled" # Update the text of this button
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
      if Input.is_action_just_pressed("build_mode"):
         print("Build mode toggled")
         set_pressed(not is_pressed())
