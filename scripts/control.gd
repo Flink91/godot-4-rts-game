@@ -1,7 +1,7 @@
 extends Control
 
 # Called every frame. Update the label with the current mouse position relative to this control.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Get the local mouse position relative to this control
 	var viewport_size = get_viewport_rect().size
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -17,3 +17,4 @@ func _process(delta: float) -> void:
 	label.text += "Mouse Position: " + str(mouse_pos)
 	label.text += "\n"
 	label.text += "Mouse Position normalized: " + str(normalized_mouse_pos)
+	label.text += "\n"

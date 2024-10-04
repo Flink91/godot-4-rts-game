@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://crdpb68bqjtl4"]
+
+[ext_resource type="PackedScene" uid="uid://e7jb33j3hdy4" path="res://structures/box_placeholder.glb" id="1_h874f"]
+[ext_resource type="Script" path="res://scripts/structure.gd" id="1_sgo8k"]
+
+[resource]
+script = ExtResource("1_sgo8k")
+model = ExtResource("1_h874f")
+price = 1
+stackable = true

@@ -7,3 +7,4 @@
 script = ExtResource("2_1i4lf")
 model = ExtResource("1_2n0ef")
 price = 10
+stackable = false

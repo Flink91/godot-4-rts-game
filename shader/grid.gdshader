@@ -11,7 +11,7 @@ uniform float radius = 0.03; // Radius of the circle around the mouse where the 
 void fragment() {
     // Calculate distance from current fragment to mouse position
     float distance_from_mouse = distance(UV, mouse_pos);
-    
+
     // Only show the grid within the specified radius around the mouse
     if (distance_from_mouse < radius) {
         vec2 grid_position = mod(UV * grid_size, 1.0);

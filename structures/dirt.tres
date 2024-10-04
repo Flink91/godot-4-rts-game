@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://l860e04myp00"]
+
+[ext_resource type="PackedScene" uid="uid://dj6pduwe4teyj" path="res://structures/level meshes/blockDirt.glb" id="1_2kbxl"]
+[ext_resource type="Script" path="res://scripts/structure.gd" id="2_bgi2q"]
+
+[resource]
+script = ExtResource("2_bgi2q")
+model = ExtResource("1_2kbxl")
+price = 1
+stackable = true

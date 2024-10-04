@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://3k330wr5yve0"]
+[gd_scene load_steps=118 format=4 uid="uid://3k330wr5yve0"]
 
 [ext_resource type="PackedScene" uid="uid://mf3mkb2ysy1m" path="res://structures/level meshes/arrow.glb" id="1_64s7k"]
 [ext_resource type="PackedScene" uid="uid://conpmol2g6enp" path="res://structures/level meshes/arrows.glb" id="2_8fs1s"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://djbbrpyujlq1l" path="res://structures/level meshes/blockCurve.glb" id="9_bnsl2"]
 [ext_resource type="PackedScene" uid="uid://c1sb747xo6gfk" path="res://structures/level meshes/blockCurveHalf.glb" id="10_0ayw0"]
 [ext_resource type="PackedScene" uid="uid://d0j3tny4t6uxf" path="res://structures/level meshes/blockCurveLow.glb" id="11_est68"]
-[ext_resource type="PackedScene" uid="uid://dj6pduwe4teyj" path="res://structures/level meshes/blockDirt.glb" id="12_q03l1"]
 [ext_resource type="PackedScene" uid="uid://bq0s5q7fgrel6" path="res://structures/level meshes/blockDirtHalf.glb" id="13_jii3v"]
 [ext_resource type="PackedScene" uid="uid://twq0g0e3co3e" path="res://structures/level meshes/blockDirtRamp.glb" id="14_wdvpn"]
 [ext_resource type="PackedScene" uid="uid://cj81w0xd4m06w" path="res://structures/level meshes/blockDirtRampHalf.glb" id="15_0gmw4"]
@@ -115,232 +114,394 @@
 [ext_resource type="PackedScene" uid="uid://csiulgkebfqu2" path="res://structures/level meshes/treePineSnow.glb" id="113_m8xbs"]
 [ext_resource type="PackedScene" uid="uid://bvrvvkychagnq" path="res://structures/level meshes/treeSnow.glb" id="114_l5dvl"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n185d"]
+resource_name = "dirt"
+albedo_color = Color(0.878431, 0.576471, 0.372549, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_waei3"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1, 1.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIAAgAEAAUABQAAAAIABwAGAAUABQAEAAcABwAEAAIAAgADAAcAAQAAAAUABQAGAAEABgAHAAMAAwABAAYA"),
+"name": "dirt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/v8AAP7/AAD+/////v8AAP7/AAAAAAAA/v///wAAAAAAAAAAAAAAAAAAAAD+/wAAAAD///7/AAAAAP//AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kvkuj"]
+resource_name = "blockDirt_Mesh blockDirt"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1.00001, 1, 1.00001),
+"attribute_data": PackedByteArray("AABVgwAAAAD//1WD//8AAP//qkH//wDFAACqQQAAAMX//wAA//9VgwAAAAAAAFWD//9VgwAAVYP//wAAAAAAAP//VYMAAFWD//8AAAAAAAAAAKpB//+qQQAAAMX//wDF"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgAAAAEAAQADAAIABgAEAAUABQAHAAYACgAIAAkACQALAAoADgAMAA0ADQAPAA4AEgAQABEAEQATABIAFgAUABUAFQAXABYA"),
+"material": SubResource("StandardMaterial3D_n185d"),
+"name": "dirt",
+"primitive": 3,
+"uv_scale": Vector4(39.3701, 76.7402, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/v8AAP7//7/+/////v//v/7/AAAAAP+//v///wAA/78AAAAAAAD//wAAAAD+/////v8AAAAA///+/wAA/v///wAA///+//+/AAAAAP7//78AAP//AAD/vwAAAAAAAP+/AAAAAAAA///+/wAAAAD//wAA//8AAP///v///wAA///+/wAA/v8AgAAAAAD+/wCA/v////7/AIAAAP///v8AgAAA//8AAP+//v///wAA/78AAP///v//v/7////+//+//38AAP9/AAD/fwAA/38AAP9//z//f/8//3//P/9//z//f////3////9/////f////3////9/////f////3////9/////f////3////9///////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_waei3")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_incuu"]
+points = PackedVector3Array(0.5, 0.999804, 0.5, -0.5, 0.000195793, -0.5, -0.5, 0.000195793, 0.5, -0.5, 0.999804, -0.5, 0.5, 0.000195793, -0.5, -0.5, 0.999804, 0.5, 0.5, 0.000195793, 0.5, 0.5, 0.999804, -0.5)
+
 [node name="Tiles" type="Node3D"]
 
 [node name="arrow2" parent="." instance=ExtResource("1_64s7k")]
+visible = false
 
 [node name="arrows2" parent="." instance=ExtResource("2_8fs1s")]
+visible = false
 
 [node name="barrel2" parent="." instance=ExtResource("3_p7xld")]
+visible = false
 
 [node name="block2" parent="." instance=ExtResource("4_fctxn")]
+visible = false
 
 [node name="blockCliff2" parent="." instance=ExtResource("5_vk073")]
+visible = false
 
 [node name="blockCliffCorner2" parent="." instance=ExtResource("6_m8oml")]
+visible = false
 
 [node name="blockCornerLarge2" parent="." instance=ExtResource("7_dbxuj")]
+visible = false
 
 [node name="blockCornerSmall2" parent="." instance=ExtResource("8_bnl4u")]
+visible = false
 
 [node name="blockCurve2" parent="." instance=ExtResource("9_bnsl2")]
+visible = false
 
 [node name="blockCurveHalf2" parent="." instance=ExtResource("10_0ayw0")]
+visible = false
 
 [node name="blockCurveLow2" parent="." instance=ExtResource("11_est68")]
+visible = false
 
-[node name="blockDirt2" parent="." instance=ExtResource("12_q03l1")]
+[node name="blockDirt2" type="Node3D" parent="."]
+
+[node name="blockDirt" type="MeshInstance3D" parent="blockDirt2"]
+mesh = SubResource("ArrayMesh_kvkuj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="blockDirt2/blockDirt"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blockDirt2/blockDirt/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_incuu")
 
 [node name="blockDirtHalf2" parent="." instance=ExtResource("13_jii3v")]
+visible = false
 
 [node name="blockDirtRamp2" parent="." instance=ExtResource("14_wdvpn")]
+visible = false
 
 [node name="blockDirtRampHalf2" parent="." instance=ExtResource("15_0gmw4")]
+visible = false
 
 [node name="blockEnd2" parent="." instance=ExtResource("16_ni2j7")]
+visible = false
 
 [node name="blockHalf2" parent="." instance=ExtResource("17_3p34q")]
+visible = false
 
 [node name="blockHexagon2" parent="." instance=ExtResource("18_oonbi")]
+visible = false
 
 [node name="blockHexagonLow2" parent="." instance=ExtResource("19_oum1w")]
+visible = false
 
 [node name="blockLarge2" parent="." instance=ExtResource("20_etvjk")]
+visible = false
 
 [node name="blockLevel2" parent="." instance=ExtResource("21_a8ylk")]
+visible = false
 
 [node name="blockLong2" parent="." instance=ExtResource("22_6sv4d")]
+visible = false
 
 [node name="blockMoving2" parent="." instance=ExtResource("23_tmtub")]
+visible = false
 
 [node name="blockMovingBlue2" parent="." instance=ExtResource("24_s27gr")]
+visible = false
 
 [node name="blockMovingLarge2" parent="." instance=ExtResource("25_igg2x")]
+visible = false
 
 [node name="blockQuarter2" parent="." instance=ExtResource("26_rne70")]
+visible = false
 
 [node name="blockRounded2" parent="." instance=ExtResource("27_ne8jv")]
+visible = false
 
 [node name="blockRoundedLarge2" parent="." instance=ExtResource("28_uwmxr")]
+visible = false
 
 [node name="blockRoundedLong2" parent="." instance=ExtResource("29_pqpit")]
+visible = false
 
 [node name="blockRoundedLow2" parent="." instance=ExtResource("30_3ip1j")]
+visible = false
 
 [node name="blockRoundedLowLong2" parent="." instance=ExtResource("31_mb63q")]
+visible = false
 
 [node name="blockSlope2" parent="." instance=ExtResource("32_f4i13")]
+visible = false
 
 [node name="blockSlopeHalf2" parent="." instance=ExtResource("33_e008d")]
+visible = false
 
 [node name="blockSnow2" parent="." instance=ExtResource("34_vx818")]
+visible = false
 
 [node name="blockSnowCliff2" parent="." instance=ExtResource("35_cqsyw")]
+visible = false
 
 [node name="blockSnowCliffCorner2" parent="." instance=ExtResource("36_0737x")]
+visible = false
 
 [node name="blockSnowCornerLarge2" parent="." instance=ExtResource("37_nxmyw")]
+visible = false
 
 [node name="blockSnowCornerSmall2" parent="." instance=ExtResource("38_jq6gk")]
+visible = false
 
 [node name="blockSnowCurve2" parent="." instance=ExtResource("39_upjcy")]
+visible = false
 
 [node name="blockSnowCurveHalf2" parent="." instance=ExtResource("40_wx52f")]
+visible = false
 
 [node name="blockSnowCurveLow2" parent="." instance=ExtResource("41_06w1d")]
+visible = false
 
 [node name="blockSnowEnd2" parent="." instance=ExtResource("42_exrgo")]
+visible = false
 
 [node name="blockSnowHalf2" parent="." instance=ExtResource("43_bhc66")]
+visible = false
 
 [node name="blockSnowHexagon2" parent="." instance=ExtResource("44_2g57m")]
+visible = false
 
 [node name="blockSnowHexagonLow2" parent="." instance=ExtResource("45_7rtl3")]
+visible = false
 
 [node name="blockSnowLarge2" parent="." instance=ExtResource("46_nphaf")]
+visible = false
 
 [node name="blockSnowLevel2" parent="." instance=ExtResource("47_qq2dg")]
+visible = false
 
 [node name="blockSnowLong2" parent="." instance=ExtResource("48_30tpt")]
+visible = false
 
 [node name="blockSnowQuarter2" parent="." instance=ExtResource("49_sjlak")]
+visible = false
 
 [node name="blockSnowRounded2" parent="." instance=ExtResource("50_vsehy")]
+visible = false
 
 [node name="blockSnowRoundedLarge2" parent="." instance=ExtResource("51_lmilp")]
+visible = false
 
 [node name="blockSnowRoundedLong2" parent="." instance=ExtResource("52_vcbr1")]
+visible = false
 
 [node name="blockSnowRoundedLow2" parent="." instance=ExtResource("53_n2dpe")]
+visible = false
 
 [node name="blockSnowRoundedLowLong2" parent="." instance=ExtResource("54_8o08d")]
+visible = false
 
 [node name="blockSnowSlope2" parent="." instance=ExtResource("55_qwk7d")]
+visible = false
 
 [node name="blockSnowSlopeHalf2" parent="." instance=ExtResource("56_hrnml")]
+visible = false
 
 [node name="bomb2" parent="." instance=ExtResource("57_symnu")]
+visible = false
 
 [node name="bridge2" parent="." instance=ExtResource("58_ultcd")]
+visible = false
 
 [node name="bridgeHalf2" parent="." instance=ExtResource("59_y8gjk")]
+visible = false
 
 [node name="bridgeRamp2" parent="." instance=ExtResource("60_u8nwk")]
+visible = false
 
 [node name="buttonRound2" parent="." instance=ExtResource("61_8lw48")]
+visible = false
 
 [node name="buttonSquare2" parent="." instance=ExtResource("62_70nuo")]
+visible = false
 
 [node name="chest2" parent="." instance=ExtResource("63_6066k")]
+visible = false
 
 [node name="coinBronze2" parent="." instance=ExtResource("64_ujhqm")]
+visible = false
 
 [node name="coinGold2" parent="." instance=ExtResource("65_p21ei")]
+visible = false
 
 [node name="coinSilver2" parent="." instance=ExtResource("66_h3fgs")]
+visible = false
 
 [node name="crate2" parent="." instance=ExtResource("67_f5isu")]
+visible = false
 
 [node name="crateItem2" parent="." instance=ExtResource("68_4n2cu")]
+visible = false
 
 [node name="crateItemStrong2" parent="." instance=ExtResource("69_rmstj")]
+visible = false
 
 [node name="crateStrong2" parent="." instance=ExtResource("70_h45gj")]
+visible = false
 
 [node name="doorClosed2" parent="." instance=ExtResource("71_pdgvd")]
+visible = false
 
 [node name="doorLargeClosed2" parent="." instance=ExtResource("72_rooeo")]
+visible = false
 
 [node name="doorLargeOpen2" parent="." instance=ExtResource("73_x2ina")]
+visible = false
 
 [node name="doorOpen2" parent="." instance=ExtResource("74_pw0k1")]
+visible = false
 
 [node name="fence2" parent="." instance=ExtResource("75_wxiay")]
+visible = false
 
 [node name="fenceBroken2" parent="." instance=ExtResource("76_lbuw7")]
+visible = false
 
 [node name="fenceCorner2" parent="." instance=ExtResource("77_oksen")]
+visible = false
 
 [node name="fenceCornerCurved2" parent="." instance=ExtResource("78_m4r4v")]
+visible = false
 
 [node name="fenceLow2" parent="." instance=ExtResource("79_prjbk")]
+visible = false
 
 [node name="fenceLowBroken2" parent="." instance=ExtResource("80_moacn")]
+visible = false
 
 [node name="fenceLowCorner2" parent="." instance=ExtResource("81_xjmv3")]
+visible = false
 
 [node name="fenceLowCornerCurved2" parent="." instance=ExtResource("82_5qdwr")]
+visible = false
 
 [node name="flag2" parent="." instance=ExtResource("83_fd8jm")]
+visible = false
 
 [node name="flowers2" parent="." instance=ExtResource("84_0d7rm")]
+visible = false
 
 [node name="flowersLow2" parent="." instance=ExtResource("85_31w2i")]
+visible = false
 
 [node name="heart2" parent="." instance=ExtResource("86_imwc7")]
+visible = false
 
 [node name="hedge2" parent="." instance=ExtResource("87_lsn1j")]
+visible = false
 
 [node name="hedgeCorner2" parent="." instance=ExtResource("88_r4vg1")]
+visible = false
 
 [node name="jewel2" parent="." instance=ExtResource("89_sne4c")]
+visible = false
 
 [node name="key2" parent="." instance=ExtResource("90_p2088")]
+visible = false
 
 [node name="ladder2" parent="." instance=ExtResource("91_hof8e")]
+visible = false
 
 [node name="ladderBroken2" parent="." instance=ExtResource("92_5b43b")]
+visible = false
 
 [node name="ladderLong2" parent="." instance=ExtResource("93_3s4uj")]
+visible = false
 
 [node name="lever2" parent="." instance=ExtResource("94_ahfo7")]
+visible = false
 
 [node name="lock2" parent="." instance=ExtResource("95_rml3c")]
+visible = false
 
 [node name="mushrooms2" parent="." instance=ExtResource("96_43vgl")]
+visible = false
 
 [node name="plant2" parent="." instance=ExtResource("97_o655y")]
+visible = false
 
 [node name="platform2" parent="." instance=ExtResource("98_rmxh7")]
+visible = false
 
 [node name="poles2" parent="." instance=ExtResource("99_qfshd")]
+visible = false
 
 [node name="rocks2" parent="." instance=ExtResource("100_4dluo")]
+visible = false
 
 [node name="saw2" parent="." instance=ExtResource("101_5brkl")]
+visible = false
 
 [node name="sign2" parent="." instance=ExtResource("102_dewub")]
+visible = false
 
 [node name="spikeBlock2" parent="." instance=ExtResource("103_3220y")]
+visible = false
 
 [node name="spikeBlockWide2" parent="." instance=ExtResource("104_tvj77")]
+visible = false
 
 [node name="spikes2" parent="." instance=ExtResource("105_awvgj")]
+visible = false
 
 [node name="spikesHidden2" parent="." instance=ExtResource("106_d22sm")]
+visible = false
 
 [node name="spikesLarge2" parent="." instance=ExtResource("107_ehcoj")]
+visible = false
 
 [node name="stones2" parent="." instance=ExtResource("108_cofm0")]
+visible = false
 
 [node name="tree2" parent="." instance=ExtResource("109_wdbf3")]
+visible = false
 
 [node name="treePine2" parent="." instance=ExtResource("110_2tqx1")]
+visible = false
 
 [node name="treePineSmall2" parent="." instance=ExtResource("111_yjh8l")]
+visible = false
 
 [node name="treePineSmallSnow2" parent="." instance=ExtResource("112_mg3u7")]
+visible = false
 
 [node name="treePineSnow2" parent="." instance=ExtResource("113_m8xbs")]
+visible = false
 
 [node name="treeSnow2" parent="." instance=ExtResource("114_l5dvl")]
+visible = false

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Structure" load_steps=3 format=3 uid="uid://l44otgluyrc5"]
+
+[ext_resource type="Script" path="res://scripts/structure.gd" id="1_6hips"]
+[ext_resource type="PackedScene" uid="uid://c06fmdj722aaw" path="res://structures/level meshes/crate.glb" id="1_bipys"]
+
+[resource]
+script = ExtResource("1_6hips")
+model = ExtResource("1_bipys")
+price = 2
+stackable = false

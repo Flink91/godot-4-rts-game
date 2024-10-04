@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cfnpn7an0nr8w"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+polygon = PackedVector2Array(0, 0, 0.313404, 1.00415, 0.547636, 1.00538, 1, 0)
